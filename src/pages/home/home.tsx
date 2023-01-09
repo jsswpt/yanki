@@ -1,8 +1,27 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, createRef } from "react";
 
 import st from "./styles.module.scss";
 import cn from "classnames";
+import { Header } from "shared/ui";
+import { Banner } from "./sections/banner";
+import gsap from "gsap";
 
 export const Home = () => {
-  return <>home</>;
+  const headerRef = createRef<HTMLElement>();
+
+  useEffect(() => {
+    gsap.fromTo(
+      headerRef.current!,
+      { opacity: 0 },
+      { opacity: 1, ease: "circ.in", delay: 4.5, duration: 2 }
+    );
+  }, []);
+  return (
+    <>
+      <Header ref={headerRef} />
+      <main>
+        <Banner />
+      </main>
+    </>
+  );
 };

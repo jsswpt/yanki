@@ -1,0 +1,90 @@
+@use "../../shared/modules/units.module";
+@use "../../shared/modules/funcs.module";
+@use "../../shared/modules/typography.module";
+
+.section__banner {
+  position: relative;
+  display: flex;
+  padding: units.$header-height 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.banner_bg {
+  z-index: 100;
+  position: absolute;
+  display: flex;
+
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.banner_bg__item {
+  flex-grow: 1;
+}
+
+.banner_bg__item:nth-child(1) {
+  z-index: 3;
+}
+
+.banner_bg__item:nth-child(2) {
+  z-index: 2;
+}
+
+.banner_bg__item:nth-child(3) {
+  z-index: 1;
+}
+
+.banner_bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.banner_container {
+  z-index: 105;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner_wrap__welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: funcs.px-rem(18);
+  width: funcs.px-rem(374);
+}
+
+.banner_title {
+  @include typography.h1 {
+    color: var(--text-contrast);
+    text-align: center;
+    text-shadow: 0 0 funcs.px-rem(32) rgba(0, 0, 0, 0.2);
+  }
+}
+
+.divider {
+  display: block;
+  height: funcs.px-rem(1);
+  background: none;
+  border: none;
+  border-top: funcs.px-rem(1) solid white;
+  width: 100%;
+}
+
+.divider_short {
+  width: funcs.px-rem(120);
+}
+
+.banner_link {
+  @include typography.link2 {
+    color: var(--text-contrast);
+    text-transform: uppercase;
+    text-shadow: 0 0 funcs.px-rem(16) rgba(0, 0, 0, 0.2);
+  }
+}

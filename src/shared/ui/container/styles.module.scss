@@ -1,0 +1,16 @@
+@use "../../modules/breakpoints.module";
+@use "../../modules/units.module";
+
+.container {
+  padding: units.$default-padding;
+  margin: 0 auto;
+  width: 100%;
+  // border: 1px solid gray;
+  @include breakpoints.media-screen(breakpoints.$sm) {
+    // border: 1px solid blue;
+  }
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    // border: 1px solid red;
+    width: breakpoints.$xl;
+  }
+}
