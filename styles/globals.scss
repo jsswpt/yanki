@@ -8,6 +8,10 @@
   list-style: none;
 }
 
+img {
+  display: block;
+}
+
 html,
 body {
   font-size: 100%;
@@ -23,6 +27,10 @@ body {
 
   --primary: #e0bea2;
   --background: #ffffff;
+}
+
+body {
+  background: var(--background);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,24 @@
+@use "./funcs.module";
+
+@mixin link1 {
+  font-size: funcs.px-rem(18);
+  font-weight: 300;
+  line-height: 1;
+  text-decoration: none;
+  @content;
+}
+
+@mixin link2 {
+  font-size: funcs.px-rem(16);
+  font-weight: 300;
+  line-height: 1;
+  text-decoration: none;
+  @content;
+}
+
+@mixin h1 {
+  font-size: funcs.px-rem(46);
+  font-weight: 300;
+  line-height: 1;
+  @content;
+}
