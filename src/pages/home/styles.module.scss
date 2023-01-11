@@ -2,7 +2,7 @@
 @use "../../shared/modules/funcs.module";
 @use "../../shared/modules/typography.module";
 
-.section__banner {
+.section_banner {
   position: relative;
   display: flex;
   padding: units.$header-height 0;
@@ -22,7 +22,7 @@
 }
 
 .banner_bg__item {
-  flex-grow: 1;
+  width: 33.3333%;
 }
 
 .banner_bg__item:nth-child(1) {
@@ -87,4 +87,24 @@
     text-transform: uppercase;
     text-shadow: 0 0 funcs.px-rem(16) rgba(0, 0, 0, 0.2);
   }
+}
+
+.mailing_wrap__form {
+  display: flex;
+  justify-content: center;
+}
+
+.form_wrapper {
+  width: funcs.px-rem(600);
+  display: flex;
+  flex-direction: column;
+  gap: funcs.px-rem(20);
+  align-items: center;
+}
+
+.mailing_agreement {
+  @include typography.body1 {
+    color: var(--text-primary);
+  }
+  text-align: center;
 }

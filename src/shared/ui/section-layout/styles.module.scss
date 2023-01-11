@@ -1,0 +1,33 @@
+@use "../../modules/units.module";
+@use "../../modules/funcs.module";
+@use "../../modules/typography.module";
+
+.section {
+  padding: funcs.px-rem(100) 0;
+}
+
+.section_wrap__headline {
+  margin-bottom: funcs.px-rem(50);
+}
+
+.section_title {
+  @include typography.h2 {
+    color: var(--text-primary);
+  }
+}
+
+.text_start {
+  text-align: start;
+}
+.text_center {
+  text-align: center;
+}
+.text_end {
+  text-align: end;
+}
+
+.section_wrap__body {
+  & > *:not(:last-child) {
+    margin-bottom: funcs.px-rem(50);
+  }
+}

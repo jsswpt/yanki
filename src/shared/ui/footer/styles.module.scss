@@ -1,0 +1,69 @@
+@use "../../modules/funcs.module";
+@use "../../modules/typography.module";
+
+.footer {
+  padding: funcs.px-rem(16) 0;
+  background: var(--text-primary);
+}
+
+.footer_wrap__info {
+  margin-bottom: funcs.px-rem(50);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.info_element__item_icons {
+  display: flex;
+  gap: funcs.px-rem(8);
+}
+
+.info_element__top {
+  margin-bottom: funcs.px-rem(20);
+}
+
+.info_title {
+  @include typography.h6 {
+    color: var(--text-contrast);
+  }
+}
+
+.info_icon {
+  width: funcs.px-rem(24);
+  height: funcs.px-rem(24);
+
+  fill: var(--primary);
+}
+
+.info_nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: funcs.px-rem(10);
+}
+
+.info_link {
+  @include typography.body1 {
+    color: var(--text-contrast);
+    transition: 0.16s ease-in-out;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.footer_wrap__rights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rights_title {
+  @include typography.body1 {
+    color: var(--text-contrast);
+    &::selection,
+    &::-moz-selection {
+      background: var(--text-contrast);
+      color: var(--text-primary);
+    }
+  }
+}

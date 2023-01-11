@@ -1,0 +1,52 @@
+@use "../../modules/funcs.module";
+@use "../../modules/typography.module";
+
+.category_card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: funcs.px-rem(450);
+  overflow: hidden;
+
+  &:hover {
+    .category_card_bg__img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.category_card_wrap__bg {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.category_card_bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  will-change: transform;
+
+  transition: 0.32s ease-in-out;
+}
+
+.category_card_wrap__title {
+  z-index: 10;
+  padding: funcs.px-rem(8) 0;
+  align-self: flex-end;
+  width: 100%;
+  background: rgba(224, 190, 162, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+.category_card_title {
+  @include typography.h3 {
+    text-align: center;
+
+    color: var(--text-contrast);
+  }
+}

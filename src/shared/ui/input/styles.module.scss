@@ -1,0 +1,77 @@
+@use "../../modules/funcs.module";
+@use "../../modules/typography.module";
+@use "../../modules/units.module";
+
+.input_wrapper {
+  position: relative;
+  width: fit-content;
+
+  &:has(> .icon_wrapper) {
+    .input {
+      padding-left: funcs.px-rem(24);
+      padding-right: funcs.px-rem(63);
+    }
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.input {
+  display: block;
+  padding: 0 funcs.px-rem(24);
+  min-width: funcs.px-rem(250);
+  width: 100%;
+  background: none;
+  outline: none;
+  border: funcs.px-rem(0.5) solid var(--text-primary);
+
+  @include typography.body1 {
+    color: var(--text-primary);
+  }
+}
+
+.icon_wrapper {
+  z-index: -1;
+  position: absolute;
+  right: funcs.px-rem(24);
+  top: 50%;
+
+  width: funcs.px-rem(15);
+  height: funcs.px-rem(15);
+
+  transform: translate(0, -50%);
+
+  opacity: 1;
+
+  svg {
+    fill: var(--text-primary);
+    color: var(--text-primary);
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.centered_text {
+  text-align: center;
+  &::placeholder {
+    text-align: center;
+    @include typography.body1 {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.medium {
+  height: units.$medium;
+}
+
+.large {
+  height: units.$large;
+}
+
+.rounded {
+  border-radius: 20px;
+}

@@ -26,11 +26,55 @@ body {
   --text-secondary: #939393;
 
   --primary: #e0bea2;
-  --background: #ffffff;
+  --background: #fff;
 }
 
 body {
   background: var(--background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+p,
+q,
+img,
+input {
+  &::selection {
+    background: var(--text-contrast);
+    color: var(--text-primary);
+  }
+  &::-moz-selection {
+    background: var(--text-contrast);
+    color: var(--text-primary);
+  }
+}
+
+h1:not(.contrast-selection),
+h2:not(.contrast-selection),
+h3:not(.contrast-selection),
+h4:not(.contrast-selection),
+h5:not(.contrast-selection),
+h6:not(.contrast-selection),
+a:not(.contrast-selection),
+span:not(.contrast-selection),
+p:not(.contrast-selection),
+q:not(.contrast-selection),
+img:not(.contrast-selection),
+input:not(.contrast-selection) {
+  &::selection {
+    background: var(--text-primary);
+    color: var(--text-contrast);
+  }
+  &::-moz-selection {
+    background: var(--text-primary);
+    color: var(--text-contrast);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

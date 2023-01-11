@@ -1,24 +1,105 @@
 @use "./funcs.module";
+@use "./breakpoints.module";
 
-@mixin link1 {
-  font-size: funcs.px-rem(18);
-  font-weight: 300;
+@mixin body1 {
+  font-size: funcs.px-rem(14);
+  font-weight: 400;
   line-height: 1;
   text-decoration: none;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(16);
+  }
+
+  @content;
+}
+
+@mixin link1 {
+  font-size: funcs.px-rem(16);
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(18);
+  }
+
   @content;
 }
 
 @mixin link2 {
-  font-size: funcs.px-rem(16);
+  font-size: funcs.px-rem(14);
   font-weight: 300;
   line-height: 1;
   text-decoration: none;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(16);
+  }
+
+  @content;
+}
+
+@mixin button-inner {
+  font-size: funcs.px-rem(12);
+  font-weight: 400;
+  line-height: 1.5;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(14);
+  }
+
+  text-transform: uppercase;
+
   @content;
 }
 
 @mixin h1 {
-  font-size: funcs.px-rem(46);
+  font-size: funcs.px-rem(32);
   font-weight: 300;
   line-height: 1;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(46);
+  }
+
+  @content;
+}
+
+@mixin h2 {
+  font-size: funcs.px-rem(24);
+  font-weight: 300;
+  line-height: 1;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(36);
+  }
+
+  @content;
+}
+
+@mixin h3 {
+  font-size: funcs.px-rem(18);
+  font-weight: 400;
+  line-height: 1;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(20);
+  }
+
+  @content;
+}
+
+@mixin h6 {
+  font-size: funcs.px-rem(18);
+  font-weight: 400;
+  line-height: 1.5;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    font-size: funcs.px-rem(20);
+  }
+
+  text-transform: uppercase;
+
   @content;
 }
