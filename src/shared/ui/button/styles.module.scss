@@ -24,6 +24,8 @@
     box-shadow: inset 0 funcs.px-rem(3) funcs.px-rem(7) rgba(37, 37, 37, 0.15);
   }
 
+  cursor: pointer;
+
   @include typography.button-inner {
     color: var(--text-primary);
   }

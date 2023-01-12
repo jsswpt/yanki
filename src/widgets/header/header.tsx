@@ -1,18 +1,30 @@
-import { useEffect, useMemo, useState, useCallback, forwardRef } from "react";
+import { useEffect, useRef } from "react";
 
-import st from "./styles.module.scss";
-import cn from "classnames";
-import { Container } from "../";
+import { Container } from "../../shared/ui";
 import Link from "next/link";
 import Image from "next/image";
 
 import Menu from "shared/assets/icons/ui/menu.svg";
 import { Cart, Favorite, Person, Search } from "shared/assets/icons/ui/";
 import { Yanki } from "shared/assets/icons/media";
+import gsap from "gsap";
+import st from "./styles.module.scss";
+import cn from "classnames";
+import { SelectCurrency, SelectLanguage } from "features";
 
-export const Header = forwardRef<HTMLElement>((_, ref) => {
+export const Header = () => {
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      headerRef.current!,
+      { opacity: 0 },
+      { opacity: 1, ease: "power1.out", delay: 4.5, duration: 2 }
+    );
+  }, []);
+
   return (
-    <header ref={ref} className={st.header}>
+    <header ref={headerRef} className={st.header}>
       <Container className={st.header_container}>
         <div className={cn(st.header_wrap, st.header_wrap__menu)}>
           <Image src={Menu} alt="menu" className={st.menu_icon} />
@@ -42,18 +54,14 @@ export const Header = forwardRef<HTMLElement>((_, ref) => {
           </Link>
         </div>
         <div className={cn(st.header_wrap, st.header_wrap__localization)}>
-          <div className={st.localization_wrap__language}>
-            <p className={st.header_title}>RU</p>
-          </div>
-          <div className={st.localization_wrap__currency}>
-            <p className={st.header_title}>UAH</p>
-          </div>
+          <SelectLanguage />
+          <SelectCurrency />
         </div>
         <div className={cn(st.header_wrap, st.header_wrap__actions)}>
-          <div className={st.actions_wrap__action}>
+          <div className={cn(st.actions_wrap__action, st.action_search)}>
             <Search className={cn(st.action_icon, st.search)} />
           </div>
-          <div className={st.actions_wrap__action}>
+          <div className={cn(st.actions_wrap__action, st.action_person)}>
             <Person className={cn(st.action_icon, st.person)} />
           </div>
           <div className={st.actions_wrap__action}>
@@ -66,4 +74,4 @@ export const Header = forwardRef<HTMLElement>((_, ref) => {
       </Container>
     </header>
   );
-});
+};

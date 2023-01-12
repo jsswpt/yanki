@@ -2,6 +2,7 @@
 @use "./funcs.module";
 
 $sm: calc(funcs.px-rem(375) + (units.$default-padding * 2));
+$md: calc(funcs.px-rem(768) + (units.$default-padding * 2));
 $xl: calc(funcs.px-rem(1140) + (units.$default-padding * 2));
 
 @mixin media-screen($size) {

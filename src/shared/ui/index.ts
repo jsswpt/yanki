@@ -7,6 +7,7 @@ export { SectionLayout } from "./section-layout/section-layout";
 
 export { ClothingCategoryCard } from "./clothing-category-card/clothing-category-card";
 
-export { Header } from "./header/header";
+export { Header } from "../../widgets/header/header";
+export { MobileHeader } from "../../widgets/header/mobile-header";
 
 export { Container } from "./container/container";

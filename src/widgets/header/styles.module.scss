@@ -1,0 +1,146 @@
+@use "../../shared/modules/units.module";
+@use "../../shared/modules/funcs.module";
+@use "../../shared/modules/typography.module";
+@use "../../shared/modules/breakpoints.module";
+
+.header {
+  display: flex;
+  z-index: 500;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: units.$header-height;
+}
+
+.header_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.header_wrap__menu {
+  justify-content: flex-start;
+}
+
+.header_wrap__nav {
+  display: none;
+  position: absolute;
+  left: 11.7%;
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    display: block;
+  }
+}
+
+.header_nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: funcs.px-rem(24);
+}
+
+.header_wrap__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+.logo_wrapper {
+  display: block;
+  width: funcs.px-rem(79);
+  height: funcs.px-rem(20);
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    width: funcs.px-rem(159);
+    height: funcs.px-rem(40);
+  }
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  fill: var(--text-contrast);
+}
+
+.header_wrap__localization {
+  display: none;
+  position: absolute;
+  top: 50%;
+
+  transform: translate(0, -50%);
+
+  justify-content: center;
+  gap: funcs.px-rem(24);
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    display: flex;
+    left: auto;
+    right: 22.64%;
+  }
+}
+
+.header_wrap__actions {
+  justify-content: flex-end;
+  gap: funcs.px-rem(16);
+
+  .action_search {
+    display: none;
+  }
+  .action_person {
+    display: none;
+  }
+
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    gap: funcs.px-rem(24);
+
+    .action_search {
+      display: block;
+    }
+    .action_person {
+      display: block;
+    }
+  }
+}
+
+.actions_wrap__action {
+  width: funcs.px-rem(20);
+  height: funcs.px-rem(20);
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    width: funcs.px-rem(25);
+    height: funcs.px-rem(25);
+  }
+}
+
+.action_icon {
+  fill: var(--text-contrast);
+  transition: 0.16s ease-in-out;
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    fill: var(--text-primary);
+  }
+}
+
+.link {
+  @include typography.link1 {
+    color: var(--text-contrast);
+    text-transform: uppercase;
+
+    transition: 0.16s ease-in-out;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+}

@@ -2,27 +2,30 @@ import { useEffect, useMemo, useState, useCallback, createRef } from "react";
 
 import st from "./styles.module.scss";
 import cn from "classnames";
-import { Footer, Header } from "shared/ui";
-import { Banner } from "./sections/banner";
+import { Footer, Header, MobileHeader } from "shared/ui";
+import { Banner } from "./sections/banner/banner";
 import gsap from "gsap";
-import { Categories } from "./sections/categories";
-import { Mailing } from "./sections/mailing";
+import { Categories } from "./sections/categories/categories";
+import { Mailing } from "./sections/mailing/mailing";
+import { useScreenWidth } from "shared/lib";
+import { MobileBanner } from "./sections/banner/mobile-banner";
+import { Screen } from "shared/api/internal/types";
 
 export const Home = () => {
-  const headerRef = createRef<HTMLElement>();
+  const [screenType, setScreenType] = useState<Screen | null>(null);
+  const screen = useScreenWidth();
+
   useEffect(() => {
-    gsap.fromTo(
-      headerRef.current!,
-      { opacity: 0 },
-      { opacity: 1, ease: "power1.out", delay: 4.5, duration: 2 }
-    );
-  }, []);
+    setScreenType(screen);
+  }, [screen]);
+
   return (
     <>
-      <Header ref={headerRef} />
+      {screenType === "xl" ? <Header /> : <MobileHeader />}
       <main>
-        <Banner />
-        <Categories />
+        {screenType === "xl" && <Banner />}
+        {(screenType === "xs" || screenType === "sm") && <MobileBanner />}
+        <Categories screen={screen} />
         <Mailing />
       </main>
       <Footer />

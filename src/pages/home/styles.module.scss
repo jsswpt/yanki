@@ -1,6 +1,7 @@
 @use "../../shared/modules/units.module";
 @use "../../shared/modules/funcs.module";
 @use "../../shared/modules/typography.module";
+@use "../../shared/modules/breakpoints.module";
 
 .section_banner {
   position: relative;
@@ -21,20 +22,37 @@
   bottom: 0;
 }
 
-.banner_bg__item {
-  width: 33.3333%;
-}
-
 .banner_bg__item:nth-child(1) {
   z-index: 3;
 }
 
 .banner_bg__item:nth-child(2) {
+  display: none;
   z-index: 2;
 }
 
 .banner_bg__item:nth-child(3) {
+  display: none;
   z-index: 1;
+}
+
+.banner_bg__item {
+  flex-grow: 1;
+  background: red;
+
+  @include breakpoints.media-screen(breakpoints.$md) {
+    &:nth-child(2) {
+      display: block;
+    }
+  }
+  @include breakpoints.media-screen(breakpoints.$xl) {
+    &:nth-child(2) {
+      display: block;
+    }
+    &:nth-child(3) {
+      display: block;
+    }
+  }
 }
 
 .banner_bg__img {

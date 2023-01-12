@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 
-import st from "../styles.module.scss";
+import st from "../../styles.module.scss";
 import cn from "classnames";
 import { Button, Input, SectionLayout } from "shared/ui";
 import { Search } from "shared/assets/icons/ui";
@@ -15,10 +15,12 @@ export const Mailing = () => {
             type="email"
             height="large"
             placeholder="Ваш e-mail *"
+            centerText
             fullWidth
-            icon={<Search />}
           />
-          <Button fullWidth>Подписаться</Button>
+          <Button fullWidth height="large">
+            Подписаться
+          </Button>
           <p className={st.mailing_agreement}>
             Нажимая на кнопку «Подписаться», я соглашаюсь на обработку моих
             персональных данных и ознакомлен(а) с условиями конфиденциальности.

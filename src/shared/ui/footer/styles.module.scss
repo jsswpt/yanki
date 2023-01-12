@@ -1,4 +1,5 @@
 @use "../../modules/funcs.module";
+@use "../../modules/breakpoints.module";
 @use "../../modules/typography.module";
 
 .footer {
@@ -7,9 +8,16 @@
 }
 
 .footer_wrap__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: funcs.px-rem(40);
   margin-bottom: funcs.px-rem(50);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  @include breakpoints.media-screen(breakpoints.$md) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .info_element__item_icons {
@@ -24,6 +32,11 @@
 .info_title {
   @include typography.h6 {
     color: var(--text-contrast);
+
+    text-align: center;
+    @include breakpoints.media-screen(breakpoints.$md) {
+      text-align: start;
+    }
   }
 }
 
@@ -34,10 +47,24 @@
   fill: var(--primary);
 }
 
+.footer_info__element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include breakpoints.media-screen(breakpoints.$md) {
+    align-items: flex-start;
+  }
+}
+
 .info_nav__list {
   display: flex;
   flex-direction: column;
   gap: funcs.px-rem(10);
+  align-items: center;
+
+  @include breakpoints.media-screen(breakpoints.$md) {
+    align-items: flex-start;
+  }
 }
 
 .info_link {
@@ -47,6 +74,11 @@
 
     &:hover {
       color: var(--primary);
+    }
+
+    text-align: center;
+    @include breakpoints.media-screen(breakpoints.$md) {
+      text-align: start;
     }
   }
 }
