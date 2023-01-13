@@ -11,20 +11,12 @@ import gsap from "gsap";
 import st from "./styles.module.scss";
 import cn from "classnames";
 import { SelectCurrency, SelectLanguage } from "features";
+import { useLocalization } from "shared/hooks";
 
 export const Header = () => {
-  const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      headerRef.current!,
-      { opacity: 0 },
-      { opacity: 1, ease: "power1.out", delay: 4.5, duration: 2 }
-    );
-  }, []);
-
+  const { translate } = useLocalization();
   return (
-    <header ref={headerRef} className={st.header}>
+    <header className={st.header}>
       <Container className={st.header_container}>
         <div className={cn(st.header_wrap, st.header_wrap__menu)}>
           <Image src={Menu} alt="menu" className={st.menu_icon} />
@@ -33,17 +25,17 @@ export const Header = () => {
           <ul className={st.header_nav__list}>
             <li className={st.header_nav__item}>
               <Link href="/" className={st.link}>
-                New
+                {translate("new")}
               </Link>
             </li>
             <li className={st.header_nav__item}>
-              <Link href="/" className={st.link}>
-                Каталог
+              <Link href="/catalog" className={st.link}>
+                {translate("catalog")}
               </Link>
             </li>
             <li className={st.header_nav__item}>
-              <Link href="/" className={st.link}>
-                О нас
+              <Link href="/about-us" className={st.link}>
+                {translate("aboutUs")}
               </Link>
             </li>
           </ul>

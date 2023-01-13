@@ -10,9 +10,8 @@ import Image from "next/image";
 import Menu from "shared/assets/icons/ui/menu.svg";
 
 export const MobileHeader = () => {
-  const ref = useRef<HTMLElement>(null);
   return (
-    <header ref={ref} className={st.header}>
+    <header className={st.header}>
       <Container className={st.header_container}>
         <div className={cn(st.header_wrap, st.header_wrap__menu)}>
           <Image src={Menu} alt="menu" className={st.menu_icon} />

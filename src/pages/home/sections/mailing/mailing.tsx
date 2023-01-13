@@ -4,26 +4,30 @@ import st from "../../styles.module.scss";
 import cn from "classnames";
 import { Button, Input, SectionLayout } from "shared/ui";
 import { Search } from "shared/assets/icons/ui";
+import { useLocalization } from "shared/hooks";
 
 export const Mailing = () => {
+  const { translate } = useLocalization();
   return (
-    <SectionLayout title="Узнайте первым о новинках" alignTitle="center">
+    <SectionLayout
+      title={translate("beTheFirstToFindOutAboutNewProducts")}
+      alignTitle="center"
+    >
       <div className={cn(st.mailing_wrap, st.mailing_wrap__form)}>
         <form action="" className={st.form_wrapper}>
           <Input
             name="email"
             type="email"
             height="large"
-            placeholder="Ваш e-mail *"
+            placeholder={`${translate("yourEmail")}*`}
             centerText
             fullWidth
           />
           <Button fullWidth height="large">
-            Подписаться
+            {translate("subscribe")}
           </Button>
           <p className={st.mailing_agreement}>
-            Нажимая на кнопку «Подписаться», я соглашаюсь на обработку моих
-            персональных данных и ознакомлен(а) с условиями конфиденциальности.
+            {translate("subscribeAgreement")}
           </p>
         </form>
       </div>

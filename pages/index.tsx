@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Home | YANKI</title>
+        <title>Главная | YANKI</title>
       </Head>
       <Home />
     </>

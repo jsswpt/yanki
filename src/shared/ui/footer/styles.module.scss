@@ -16,6 +16,7 @@
 
   @include breakpoints.media-screen(breakpoints.$md) {
     display: grid;
+    align-items: flex-start;
     grid-template-columns: repeat(4, 1fr);
   }
 }

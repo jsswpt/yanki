@@ -1,5 +1,3 @@
-import { useEffect, useMemo, useState, useCallback, useRef } from "react";
-
 import st from "../../styles.module.scss";
 import cn from "classnames";
 
@@ -11,42 +9,23 @@ import gsap from "gsap";
 import { Container } from "shared/ui";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
+import { useLocalization } from "shared/hooks";
 
 export const MobileBanner = () => {
-  const firstImg = useRef<HTMLDivElement>(null);
-  const welcomeRef = useRef<HTMLDivElement>(null);
-
-  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
-
-  useEffect(() => {
-    if (inView) {
-      const tl = gsap.timeline();
-
-      tl.fromTo(
-        firstImg.current!,
-        { opacity: 0 },
-        {
-          duration: 1.5,
-          ease: "power2.out",
-          opacity: 1,
-        }
-      );
-    }
-  }, [inView]);
-
+  const { translate } = useLocalization();
   return (
-    <section ref={ref} className={cn(st.section, st.section_banner)}>
+    <section className={cn(st.section, st.section_banner)}>
       <div className={st.banner_bg}>
-        <div ref={firstImg} className={st.banner_bg__item}>
+        <div className={st.banner_bg__item}>
           <Image src={Banner1} alt="Banner1" className={st.banner_bg__img} />
         </div>
       </div>
       <Container className={cn(st.banner_container)}>
-        <div ref={welcomeRef} className={st.banner_wrap__welcome}>
-          <p className={st.banner_title}>Новая коллекция</p>
+        <div className={st.banner_wrap__welcome}>
+          <p className={st.banner_title}>{translate("newCollection")}</p>
           <hr className={cn(st.divider, st.divider_short)} />
           <Link href="/" className={st.banner_link}>
-            Смотреть новинки
+            {translate("seeNewProducts")}
           </Link>
         </div>
       </Container>

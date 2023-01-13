@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState, useCallback, createRef } from "react";
 
-import st from "./styles.module.scss";
-import cn from "classnames";
 import { Footer, Header, MobileHeader } from "shared/ui";
 import { Banner } from "./sections/banner/banner";
-import gsap from "gsap";
 import { Categories } from "./sections/categories/categories";
 import { Mailing } from "./sections/mailing/mailing";
 import { useScreenWidth } from "shared/lib";
@@ -23,7 +20,7 @@ export const Home = () => {
     <>
       {screenType === "xl" ? <Header /> : <MobileHeader />}
       <main>
-        {screenType === "xl" && <Banner />}
+        {(screenType === "xl" || screenType === "md") && <Banner />}
         {(screenType === "xs" || screenType === "sm") && <MobileBanner />}
         <Categories screen={screen} />
         <Mailing />

@@ -5,10 +5,12 @@ import cn from "classnames";
 import { Container } from "../container/container";
 import Link from "next/link";
 import { Instagram, Telegram } from "shared/assets/icons/ui";
+import { useLocalization } from "shared/hooks";
 
 interface Footer extends HTMLAttributes<HTMLElement> {}
 
 export const Footer = (props: Footer) => {
+  const { translate } = useLocalization();
   return (
     <footer {...props} className={cn(st.footer, props.className)}>
       <Container className={st.footer_container}>
@@ -16,7 +18,7 @@ export const Footer = (props: Footer) => {
           <div className={st.footer_info__element}>
             <div className={st.info_element__top}>
               <h6 className={cn(st.info_title, "contrast-selection")}>
-                Компания
+                {translate("company")}
               </h6>
             </div>
             <nav className={st.info_element__nav}>
@@ -26,7 +28,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    О нас
+                    {translate("aboutUs")}
                   </Link>
                 </li>
                 <li className={st.info_element__item}>
@@ -34,7 +36,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Контакты
+                    {translate("contacts")}
                   </Link>
                 </li>
               </ul>
@@ -43,7 +45,7 @@ export const Footer = (props: Footer) => {
           <div className={st.footer_info__element}>
             <div className={st.info_element__top}>
               <h6 className={cn(st.info_title, "contrast-selection")}>
-                Полезное
+                {translate("useful")}
               </h6>
             </div>
             <nav className={st.info_element__nav}>
@@ -53,7 +55,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Оплата и доставка
+                    {translate("paymentAndDelievery")}
                   </Link>
                 </li>
                 <li className={st.info_element__item}>
@@ -61,7 +63,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Условия возврата
+                    {translate("termsOfReturn")}
                   </Link>
                 </li>
                 <li className={st.info_element__item}>
@@ -69,7 +71,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Бонусная программа
+                    {translate("bonusProgram")}
                   </Link>
                 </li>
               </ul>
@@ -78,7 +80,7 @@ export const Footer = (props: Footer) => {
           <div className={st.footer_info__element}>
             <div className={st.info_element__top}>
               <h6 className={cn(st.info_title, "contrast-selection")}>
-                Покупателю
+                {translate("toTheBuyer")}
               </h6>
             </div>
             <nav className={st.info_element__nav}>
@@ -88,7 +90,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Избранное
+                    {translate("favourites")}
                   </Link>
                 </li>
                 <li className={st.info_element__item}>
@@ -96,7 +98,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Публичная оферта
+                    {translate("publicOffer")}
                   </Link>
                 </li>
                 <li className={st.info_element__item}>
@@ -104,7 +106,7 @@ export const Footer = (props: Footer) => {
                     href="/"
                     className={cn(st.info_link, "contrast-selection")}
                   >
-                    Политика конфиденциальности
+                    {translate("privacyPolicy")}
                   </Link>
                 </li>
               </ul>
@@ -113,7 +115,7 @@ export const Footer = (props: Footer) => {
           <div className={st.footer_info__element}>
             <div className={st.info_element__top}>
               <h6 className={cn(st.info_title, "contrast-selection")}>
-                Контакты
+                {translate("contacts")}
               </h6>
             </div>
             <nav className={st.info_element__nav}>
