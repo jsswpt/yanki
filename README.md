@@ -1,2 +1,2 @@
 # Интернет магазин одежды
-Текущую версию можно посмотреть <a href="https://yanki-nine.vercel.app/">здесь</a>
+Текущую версию можно посмотреть <a href="https://yanki-view.vercel.app/">здесь</a>
